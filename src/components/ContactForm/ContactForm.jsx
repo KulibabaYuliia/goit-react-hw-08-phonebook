@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
-import { fetchAddContacts } from 'redux/contacts/contacts.reducer';
+import { fetchAddContacts } from 'redux/contacts/contacts.operations';
 
 const phoneRegExp = /[0-9]{3}-[0-9]{2}-[0-9]{2}/;
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' ][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;

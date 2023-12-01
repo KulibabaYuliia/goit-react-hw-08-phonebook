@@ -9,7 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from 'redux/contacts/contacts.reducer';
+import { fetchContacts } from 'redux/contacts/contacts.operations';
 
 export default function Contacts() {
   const isLoading = useSelector(selectIsLoading);

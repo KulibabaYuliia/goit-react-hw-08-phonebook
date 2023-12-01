@@ -1,6 +1,6 @@
 import { ContactWrap } from './Contact.styled';
 import { useDispatch } from 'react-redux';
-import { fetchDeleteContact } from 'redux/contacts/contacts.reducer';
+import { fetchDeleteContact } from 'redux/contacts/contacts.operations';
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();

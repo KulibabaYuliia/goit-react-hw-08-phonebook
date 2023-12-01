@@ -1,26 +1,36 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { Filter } from 'components/Filter/Filter';
+import { Loader } from 'components/Loader/Loader';
+import { ContactsList } from 'components/ContactsList/ContactsList';
+import {
+  selectIsLoading,
+  selectError,
+} from 'redux/contacts/contacts.selectors';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchContacts } from 'redux/contacts/contacts.reducer';
 
 export default function Contacts() {
+  const isLoading = useSelector(selectIsLoading);
+  const errorMassege = useSelector(selectError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
+      <Filter />
+      {isLoading && <Loader />}
+      {errorMassege && (
+        <div>Something went wrong. Error messege: {errorMassege}</div>
+      )}
+      <ContactsList />
     </div>
   );
 }

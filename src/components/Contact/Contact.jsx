@@ -8,7 +8,7 @@ export const Contact = ({ contact }) => {
   return (
     <ContactWrap>
       <span>
-        {contact.name}: {contact.phone}
+        {contact.name}: {contact.number}
       </span>
       <button onClick={() => dispatch(fetchDeleteContact(contact.id))}>
         delete

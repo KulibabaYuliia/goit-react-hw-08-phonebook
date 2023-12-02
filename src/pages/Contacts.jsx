@@ -6,9 +6,8 @@ import {
   selectIsLoading,
   selectError,
 } from 'redux/contacts/contacts.selectors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contacts.operations';
 
 export default function Contacts() {

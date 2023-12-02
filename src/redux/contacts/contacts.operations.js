@@ -18,6 +18,7 @@ export const fetchAddContacts = createAsyncThunk(
   async (contact, thunkApi) => {
     try {
       const { data } = await instance.post(`contacts/`, contact);
+
       return data;
     } catch (err) {
       return thunkApi.rejectWithValue(err.message);

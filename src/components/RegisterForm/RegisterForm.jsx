@@ -1,26 +1,34 @@
-import { FormWrap, StyledField } from './LoginForm.styled';
+import { FormWrap, StyledField } from './RegisterForm.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 let userSchema = yup.object().shape({
+  userName: yup
+    .string('Name is not valid')
+    .required('Field should not be empty'),
   email: yup
     .string('Email is not valid')
     .email('Email is not valid')
-    .required(),
+    .required('Field should not be empty'),
   password: yup
     .string('Password is not valid')
     .min(7, 'Password is too short')
-    .required(),
+    .required('Field should not be empty'),
 });
 
-export const LoginForm = ({ submitHandler }) => {
+export const RegistrationForm = ({ submitHandler }) => {
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ userName: '', email: '', password: '' }}
       validationSchema={userSchema}
       onSubmit={submitHandler}
     >
       <FormWrap>
+        <label>
+          Name
+          <StyledField type="text" name="userName" />
+          <ErrorMessage name="userName" component="div" />
+        </label>
         <label>
           Email
           <StyledField type="email" name="email" />
@@ -35,7 +43,7 @@ export const LoginForm = ({ submitHandler }) => {
           />
           <ErrorMessage name="password" component="div" />
         </label>
-        <button type="submit">Log in</button>
+        <button type="submit">SignUp</button>
       </FormWrap>
     </Formik>
   );

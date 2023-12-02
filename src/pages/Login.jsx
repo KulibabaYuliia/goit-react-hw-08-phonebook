@@ -4,8 +4,7 @@ import {
   selectIsLoading,
   selectError,
 } from 'redux/contacts/contacts.selectors';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/auth/auth.operations';
 
 export default function Contacts() {

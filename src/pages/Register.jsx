@@ -25,7 +25,6 @@ export default function Contacts() {
 
   return (
     <div>
-      <h1>Registration Page</h1>
       <RegistrationForm submitHandler={submitHandler} />
       {isLoading && <Loader />}
       {errorMassege && (
